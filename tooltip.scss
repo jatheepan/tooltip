@@ -1,0 +1,13 @@
+.tooltip-parent {
+  position: relative;
+}
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  top: -40px;
+  transform: translate(-50%, 0);
+  text-align: center;
+  background-color: #000;
+  border-radius: 3px;
+  color: #fff;
+}
