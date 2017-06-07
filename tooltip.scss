@@ -1,10 +1,12 @@
-.tooltip-parent {
+.tooltip-wrapper {
   position: relative;
+  display: inline-block;
 }
 .tooltip {
   position: absolute;
   padding: 10px;
-  top: -40px;
+  top: -45px;
+  left: 50%;
   transform: translate(-50%, 0);
   text-align: center;
   background-color: #000;

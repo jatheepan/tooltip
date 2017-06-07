@@ -1,20 +1,26 @@
 var Tooltip = {
     show: function(element, text) {
+        if(this.tooltipVisible) {
+            this.hide(); // Hide any visible tooltips
+        }
         var tooltip = this.getTooltip();
+        var wrappedElement = this.wrapElement(element);
 
         tooltip.innerText = text;
-        element.parentNode.insertBefore(tooltip, element.nextSibling);
-        element.parentNode.classList.add('tooltip-parent');
+
+        wrappedElement.appendChild(tooltip);
+        wrappedElement.appendChild(element);
+        this.tooltipVisible = true;
     },
 
     hide: function() {
-        var tooltip = this.getTooltip();
+        var parent = this.wrappedElement.parentNode;
 
-        if(tooltip) {
-            tooltip.parentNode.removeChild(tooltip);
-            tooltip.parentNode.classList.remove('tooltip-parent');
-            this.tooltip = null;
-        }
+        parent.appendChild(this.orgElement);
+        parent.removeChild(this.wrappedElement);
+        this.tooltipVisible = false;
+        this.wrappedElement = null;
+        this.tooltip = null;
     },
 
     getTooltip: function() {
@@ -26,6 +32,19 @@ var Tooltip = {
         }
 
         return this.tooltip;
+    },
+
+    wrapElement: function(element) {
+        if(!this.wrappedElement) {
+            this.orgElement = element;
+            var wrapper = document.createElement('div');
+
+            wrapper.classList.add('tooltip-wrapper');
+            element.parentNode.replaceChild(wrapper, element);
+            this.wrappedElement = wrapper;
+        }
+
+        return this.wrappedElement;
     }
 };
 
