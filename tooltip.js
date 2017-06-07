@@ -52,8 +52,8 @@ var button = document.getElementById('button');
 var button2 = document.getElementById('button2');
 
 button.onclick = function() {
-    Tooltip.show(button, 'TEST');
+    Tooltip.show(button, 'TEST tooltip blab');
 };
 button2.onclick = function() {
-    Tooltip.show(button2, 'TEST');
+    Tooltip.show(button2, 'TEST tooltip blab');
 };

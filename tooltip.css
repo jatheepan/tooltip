@@ -11,6 +11,7 @@
   text-align: center;
   background-color: #000;
   border-radius: 3px;
-  color: #fff; }
+  color: #fff;
+  white-space: nowrap; }
 
 /*# sourceMappingURL=tooltip.css.map */
