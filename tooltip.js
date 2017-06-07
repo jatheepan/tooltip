@@ -1,10 +1,11 @@
 var Tooltip = {
     show: function(element, text) {
         if(this.tooltipVisible) {
-            this.hide(); // Hide any visible tooltips
+            // Hide any visible tooltips
+            this.hide();
         }
         var tooltip = this.getTooltip();
-        var wrappedElement = this.wrapElement(element);
+        var wrappedElement = this.getWrappedElement(element);
 
         tooltip.innerText = text;
 
@@ -28,13 +29,14 @@ var Tooltip = {
             var holder = document.createElement('div');
 
             holder.classList.add('tooltip');
+            holder.classList.add('top');
             this.tooltip = holder;
         }
 
         return this.tooltip;
     },
 
-    wrapElement: function(element) {
+    getWrappedElement: function(element) {
         if(!this.wrappedElement) {
             this.orgElement = element;
             var wrapper = document.createElement('div');

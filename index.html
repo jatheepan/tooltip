@@ -5,10 +5,18 @@
 </head>
 <body>
 
-<div style="position: relative; top: 200px; left: 400px;">
+<div style="position: relative; top: 200px; left: 100px; width: 300px;">
     <button id="button">Click</button>
 </div>
 <button id="button2">Click</button>
 <script src="tooltip.js"></script>
+<script>
+    var button = document.getElementById('button');
+
+    button.addEventListener('click', function(e) {
+        Tooltip.show(button, "The Text");
+    });
+
+</script>
 </body>
 </html>
