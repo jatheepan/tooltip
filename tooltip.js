@@ -11,6 +11,14 @@ var Tooltip = {
 
         wrappedElement.appendChild(tooltip);
         wrappedElement.appendChild(element);
+
+        this.bodyClick = document.body.addEventListener('mouseup', function(e) {
+            var target = e.target;
+            if(this.tooltipVisible && !target.classList.contains('tooltip')) {
+                this.hide();
+            }
+        }.bind(this));
+
         this.tooltipVisible = true;
     },
 
@@ -22,6 +30,8 @@ var Tooltip = {
         this.tooltipVisible = false;
         this.wrappedElement = null;
         this.tooltip = null;
+
+        document.body.removeEventListener('mouseup', this.bodyClick);
     },
 
     getTooltip: function() {
