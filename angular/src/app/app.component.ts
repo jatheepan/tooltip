@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 
 @Component({
     selector: "plum-app",
-    template: require("./app.component.pug"),
+    template: require("./app.component.html"),
     styleUrls: [ "./app.component.scss" ],
     encapsulation: ViewEncapsulation.None
 })
