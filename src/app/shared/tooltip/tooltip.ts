@@ -44,11 +44,12 @@ export let Tooltip = {
     },
 
     addTooltipStyle: function(element: any, tooltip: any) {
+        var tooltipWidth = tooltip.offsetWidth;
         var elementPosition = element.getBoundingClientRect();
         var elementWidth = element.offsetWidth;
 
         tooltip.style.position = 'absolute';
         tooltip.style.top = (elementPosition.top - (40)) + 'px';
-        tooltip.style.left = (elementPosition.left + (elementWidth / 2) - (tooltip.offsetWidth / 2)) + 'px';
+        tooltip.style.left = (elementPosition.left + (elementWidth / 2) - (tooltipWidth / 2)) + 'px';
     }
 };
