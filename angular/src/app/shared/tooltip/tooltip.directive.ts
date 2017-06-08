@@ -16,7 +16,6 @@ export class TooltipDirective {
     }
 
     @HostListener('click', ['$event']) onClick(event: Event) {
-        console.log(this.tkTooltipMessage);
         if(this.tkTooltipMessage.trim()) {
             Tooltip.show(this.el.nativeElement, this.tkTooltipMessage.trim());
         }
