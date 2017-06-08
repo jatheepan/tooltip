@@ -5,6 +5,7 @@ import { Component } from "@angular/core";
     template: require("./home.component.html"),
     styleUrls: [ "./home.component.scss" ]
 })
+
 export class HomeComponent {
     
 }

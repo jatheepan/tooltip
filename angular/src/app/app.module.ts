@@ -7,12 +7,14 @@ import { HttpModule } from "@angular/http";
 import { ROUTING } from "./app.routing";
 
 import { HomeComponent } from "./route/home/home.component";
+import { TooltipModule } from './shared/tooltip/tooltip.module';
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
+        TooltipModule,
         ROUTING
     ],
     declarations: [
