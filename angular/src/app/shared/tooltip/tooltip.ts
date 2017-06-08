@@ -25,8 +25,9 @@ export let Tooltip = {
     hide() {
         var parent = this.wrappedElement.parentNode;
 
-        parent.appendChild(this.orgElement);
-        parent.removeChild(this.wrappedElement);
+        parent.replaceChild(this.orgElement, this.wrappedElement)
+        // parent.appendChild(this.orgElement);
+        // parent.removeChild(this.wrappedElement);
         this.tooltipVisible = false;
         this.wrappedElement = null;
         this.tooltip = null;
