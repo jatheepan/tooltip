@@ -47,17 +47,18 @@ export let Tooltip = {
         let tooltipWidth = tooltip.offsetWidth;
         let tooltipHeight = tooltip.offsetHeight;
         let elementPosition = element.getBoundingClientRect();
-        let elementWidth = elementPosition.width;
-        let elementHeight = elementPosition.height;
+        let elementWidth = element.offsetWidth;
+        let elementHeight = element.offsetHeight;
+        let pageScroll = document.body.scrollTop;
 
         tooltip.style.position = 'absolute';
         tooltip.style.left = (elementPosition.left + (elementWidth / 2) - (tooltipWidth / 2)) + 'px';
 
         if(tooltipHeight > elementPosition.top) {
-            tooltip.style.top = (elementPosition.top + (elementHeight + offset)) + 'px';
+            tooltip.style.top = pageScroll + (elementPosition.top + (elementHeight + offset)) + 'px';
             tooltip.classList.add('bottom');
         } else {
-            tooltip.style.top = (elementPosition.top - (tooltipHeight + offset)) + 'px';
+            tooltip.style.top = pageScroll + (elementPosition.top - (tooltipHeight + offset)) + 'px';
             tooltip.classList.add('top');
         }
 
