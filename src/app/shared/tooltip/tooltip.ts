@@ -21,16 +21,19 @@ export let Tooltip = {
             }
         }.bind(this));
 
+        this.bodyScroll = document.addEventListener('scroll', function(e: any) {
+            this.addTooltipStyle(element, tooltip);
+        }.bind(this));
         this.tooltipVisible = true;
     },
 
-    hide(element: any) {
+    hide() {
         document.body.removeChild(this.getTooltip());
-        // element.parentNode.removeChild(this.getTooltip());
         this.tooltipVisible = false;
         this.tooltip = null;
 
         document.removeEventListener('mouseup', this.bodyClick);
+        document.removeEventListener('scroll', this.bodyScroll);
     },
 
     getTooltip() {
@@ -58,9 +61,11 @@ export let Tooltip = {
 
         if(tooltipHeight > elementPosition.top) {
             tooltip.style.top = pageScroll + (elementPosition.top + (elementHeight + offset)) + 'px';
+            tooltip.classList.remove('top');
             tooltip.classList.add('bottom');
         } else {
             tooltip.style.top = pageScroll + (elementPosition.top - (tooltipHeight + offset)) + 'px';
+            tooltip.classList.remove('bottom');
             tooltip.classList.add('top');
         }
 

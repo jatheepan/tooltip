@@ -1,4 +1,15 @@
-@keyframes fall-down {
+@keyframes slide-down {
+  0% {
+    opacity: 0.3;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
   0% {
     opacity: 0.3;
     transform: translateY(-5px);
@@ -58,7 +69,6 @@ button {
   color: #7a16cd;
   white-space: nowrap;
   box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
-  animation: fall-down 0.3s;
 
   &:before {
     display: block;
@@ -71,14 +81,22 @@ button {
     margin-left: -6px;
   }
 
-  &.top:before {
-    bottom: -12px;
-    left: 50%;
+  &.top {
+    animation: slide-up 0.3s;
+
+    &:before {
+      bottom: -12px;
+      left: 50%;
+    }
   }
 
-  &.bottom:before {
-    top: -12px;
-    left: 50%;
-    transform: rotate(180deg);
+  &.bottom {
+    animation: slide-down 0.3s;
+
+    &:before {
+      top: -12px;
+      left: 50%;
+      transform: rotate(180deg);
+    }
   }
 }
