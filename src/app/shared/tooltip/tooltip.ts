@@ -8,7 +8,8 @@ export let Tooltip = {
 
         let tooltip = this.getTooltip();
 
-        element.parentNode.insertBefore(tooltip, element.nextSibling);
+        // element.parentNode.insertBefore(tooltip, element.nextSibling);
+        document.body.appendChild(tooltip);
 
         tooltip.innerText = text;
         this.addTooltipStyle(element, tooltip);
@@ -24,7 +25,8 @@ export let Tooltip = {
     },
 
     hide(element: any) {
-        element.parentNode.removeChild(this.getTooltip());
+        document.body.removeChild(this.getTooltip());
+        // element.parentNode.removeChild(this.getTooltip());
         this.tooltipVisible = false;
         this.tooltip = null;
 
@@ -49,7 +51,7 @@ export let Tooltip = {
         let elementPosition = element.getBoundingClientRect();
         let elementWidth = element.offsetWidth;
         let elementHeight = element.offsetHeight;
-        let pageScroll = document.body.scrollTop;
+        let pageScroll = document.documentElement.scrollTop || document.body.scrollTop;
 
         tooltip.style.position = 'absolute';
         tooltip.style.left = (elementPosition.left + (elementWidth / 2) - (tooltipWidth / 2)) + 'px';
