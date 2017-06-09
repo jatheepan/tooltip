@@ -27,6 +27,7 @@ body {
 
 button {
   color: #fff;
+  font-weight: 300;
   padding: 10px 20px;
   border-radius: 3px;
   background-color: transparent;
@@ -34,10 +35,16 @@ button {
   outline: none;
 }
 
+.button-large {
+  font-size: 26px;
+  border-width: 1px;
+}
+
 .button2 {
   left: 300px;
-  top: 100px;
+  top: 10px;
   position: absolute;
+  height: 60px;
 }
 
 .tooltip {
@@ -60,8 +67,17 @@ button {
     border: 6px solid transparent;
     border-top-color: #fff;
     position: absolute;
+    margin-left: -6px;
+  }
+
+  &.top:before {
     bottom: -12px;
     left: 50%;
-    margin-left: -6px;
+  }
+
+  &.bottom:before {
+    top: -12px;
+    left: 50%;
+    transform: rotate(180deg);
   }
 }
