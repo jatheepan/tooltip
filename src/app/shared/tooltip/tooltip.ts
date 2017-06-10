@@ -14,16 +14,15 @@ export let Tooltip = {
         tooltip.innerText = text;
         this.addTooltipStyle(element, tooltip);
 
-        this.bodyClick = document.addEventListener('mouseup', function(e: any) {
+        this.onMouseUpHandler = (e: any) => {
             let target = e.target;
             if(this.tooltipVisible && !target.classList.contains('tooltip')) {
-                this.hide(element);
+                this.hide();
             }
-        }.bind(this));
-
-        this.bodyScroll = document.addEventListener('scroll', function(e: any) {
-            this.addTooltipStyle(element, tooltip);
-        }.bind(this));
+        }
+        this.onPageScrollHandler = () => this.addTooltipStyle(element, tooltip);
+        document.addEventListener('mouseup', this.onMouseUpHandler);
+        document.addEventListener('scroll', this.onPageScrollHandler);
         this.tooltipVisible = true;
     },
 
@@ -32,8 +31,8 @@ export let Tooltip = {
         this.tooltipVisible = false;
         this.tooltip = null;
 
-        document.removeEventListener('mouseup', this.bodyClick);
-        document.removeEventListener('scroll', this.bodyScroll);
+        document.removeEventListener('mouseup', this.onMouseUpHandler);
+        document.removeEventListener('scroll', this.onPageScrollHandler);
     },
 
     getTooltip() {
