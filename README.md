@@ -1,7 +1,7 @@
 ## Button Tooltip for Angular 2, 4
 
 ### Include it in any element
-`<button tk-tooltip tkTooltipMessage ="Hello">Say</button>`
+`<button tkTooltip tkTooltipMessage="Hello">Say</button>`
 
 ### Commands
 
