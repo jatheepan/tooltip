@@ -30,33 +30,40 @@ body {
   padding: 20px;
   font-size: 16px;
   background-color: #7a16cd;
+  margin-top: 200px;
   font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
+.link {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.block {
+  margin-top: 20px;
+}
+
 .box {
+  width: 300px;
+  margin: 0 auto;
   padding: 30px;
+  height: 2000px;
 }
 
 button {
   color: #fff;
+  font-size: 15px;
   font-weight: 300;
   padding: 10px 20px;
   border-radius: 3px;
   background-color: transparent;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   outline: none;
-}
-
-.button-large {
-  font-size: 26px;
-  border-width: 1px;
-}
-
-.button2 {
-  left: 300px;
-  top: 10px;
-  position: absolute;
-  height: 60px;
 }
 
 .tooltip {
