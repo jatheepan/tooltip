@@ -4,7 +4,7 @@
 To see the demo [Click](https://jatheepan.github.io/tooltip/)
 
 ### Include it in any element
-`<button tk-tooltip tkTooltipMessage="Hello">Say</button>`
+`<button tkTooltip tkTooltipMessage="Hello">Say</button>`
 
 ### Commands
 

@@ -7,7 +7,7 @@ import {
 import {Tooltip} from './tooltip';
 
 @Directive({
-    selector: '[tk-tooltip]'
+    selector: '[tkTooltip]'
 })
 
 export class TooltipDirective {
